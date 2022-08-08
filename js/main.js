@@ -47,9 +47,9 @@ function changeProgressBarOnScroll() {
     window.addEventListener("scroll", (e) => {
         const currentSkillsPosition = currentSkills.getBoundingClientRect().top;
         const screenPosition = window.innerHeight;
-        console.log(screenPosition)
-        console.log(currentSkillsPosition)
-        if (currentSkillsPosition < screenPosition && -currentSkillsPosition < screenPosition) {
+        const butoomSkillsPosition = currentSkills.getBoundingClientRect().bottom;
+
+        if (currentSkillsPosition + 150 < screenPosition && butoomSkillsPosition >= 200) {
             showProgress();
         }
         else {
@@ -59,11 +59,39 @@ function changeProgressBarOnScroll() {
 }
 
 
+function fade_in_out() {
+    const fadeSections = document.querySelectorAll(".fadeSection");
+    window.addEventListener("scroll", () => {
+        fadeSections.forEach(fadeSection => {
+            const i_O = fadeSection.querySelectorAll(".fade_in_out");
+            function fade_in(io) {
+                io.style.cssText = "opacity: 1; transform: translateX(0);";
+            }
 
+            function fade_out(io) {
+                const value = io.dataset.fade;
+                io.style.cssText = "opacity: 0; transform: translateX(" + value + "%);";
+            }
+            const trigger = window.innerHeight / 6 * 4;
+            i_O.forEach(io => {
+                const top = io.getBoundingClientRect().top;
+                if (trigger + 100 > top) {
+                    fade_in(io);
+                } else {
+                    fade_out(io);
+                }
+            });
+        });
+    });
 
-/************************* CALL THE FUNCTION*************************/
+}
+
+/************************* CALL THE FUNCTIONS*************************/
 changeProgressBarOnScroll();
 
 changeActiveNavbarItemOnClick();
 
 changeActiveNavbarItemOnScroll();
+
+fade_in_out();
+

@@ -8,6 +8,9 @@
 
 
 /*******************/
+body {
+    overflow-x: hidden;
+}
 
 p {
 
@@ -76,7 +79,13 @@ nav {
     font-weight: 300;
     border: 2px solid var(--main-color);
     border-radius: 25%;
+
     background-color: var(--main-color-alpha);
+}
+
+.navbar a {
+    justify-content: center;
+    display: flex;
 }
 
 /*******************/
@@ -492,10 +501,15 @@ nav {
     background-color: var(--bg-color);
     text-align: center;
     padding: 20px 0;
-
-
+    transition: .5s ease-in-out transform,
+        .5s ease-in-out opacity;
 }
 
+.experience .description {
+    transition: .5s ease-in-out transform,
+        .5s ease-in-out opacity;
+
+}
 
 
 
@@ -530,6 +544,18 @@ nav {
     background-color: var(--bg-color);
     text-align: center;
     padding: 35px 0;
+    transition: .5s ease-in-out transform,
+        .5s ease-in-out opacity;
+
+
+}
+
+.education .description {
+
+    transition: .5s ease-in-out transform,
+        .5s ease-in-out opacity;
+
+
 }
 
 .education .edu .date p {
@@ -603,3 +629,5 @@ nav {
     font-size: 15px;
 
 }
+
+/**********************/
