@@ -6,9 +6,15 @@
     font-family: 'Roboto', sans-serif;
 }
 
+:root {
+    --data-progress: 0;
+}
+
 
 /*******************/
+html,
 body {
+    max-width: 100%;
     overflow-x: hidden;
 }
 
@@ -28,6 +34,7 @@ ul {
     padding: 0;
 }
 
+/*******************/
 
 .box {
     border-radius: 15px;
@@ -60,7 +67,7 @@ nav {
 
     margin: 0 5px;
     height: 40px;
-    max-width: 100px;
+    max-width: max-content;
     display: flex;
 
     align-items: center;
@@ -119,7 +126,7 @@ nav {
 
 .landing-text p {
     color: black;
-    font-size: 30px;
+    font-size: 26.6px;
     font-weight: 200;
 
 }
@@ -321,7 +328,7 @@ nav {
 
 @keyframes html {
     0% {
-        width: 0%;
+        width: 0;
     }
 
     100% {
@@ -368,7 +375,7 @@ nav {
     }
 
     100% {
-        width: 10%;
+        width: 25%;
     }
 }
 
@@ -514,7 +521,6 @@ nav {
 
 
 .experience .work p {
-    font-size: 18px;
     margin: 5px 30px;
 
 
@@ -559,7 +565,6 @@ nav {
 }
 
 .education .edu .date p {
-    font-size: 18px;
     margin: 5px 30px;
 
 
@@ -604,6 +609,30 @@ nav {
     font-size: 18px;
     font-weight: 300;
 
+}
+
+/**********************/
+.hobbies .row {
+    text-align: center;
+}
+
+.hobbies .row .hoppy {
+
+    margin: 25px 40px 0 40px;
+    display: inline-table;
+
+}
+
+.hobbies .row .hoppy i {
+    font-size: 45px;
+    color: var(--buttom);
+}
+
+
+.hobbies .row .hoppy p {
+
+    color: black;
+    margin-top: 15px;
 }
 
 /**********************/

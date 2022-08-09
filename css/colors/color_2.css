@@ -1,0 +1,8 @@
+:root{
+
+    --main-color: hsl(88, 100%, 23%);
+    --main-color-alpha: hsla(88, 100%, 31%, 0.1);
+    --bg-color: hsl(88, 100%, 92%);
+    --shadow:  hsla(88, 13%, 49%, 0.438);
+    --buttom: hsl(88, 100%, 84%);
+}

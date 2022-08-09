@@ -59,7 +59,7 @@ function changeProgressBarOnScroll() {
 }
 
 
-function fade_in_out() {
+function fadeInOut() {
     const fadeSections = document.querySelectorAll(".fadeSection");
     window.addEventListener("scroll", () => {
         fadeSections.forEach(fadeSection => {
@@ -75,6 +75,7 @@ function fade_in_out() {
             const trigger = window.innerHeight / 6 * 4;
             i_O.forEach(io => {
                 const top = io.getBoundingClientRect().top;
+                const buttom = io.getBoundingClientRect().buttom;
                 if (trigger + 100 > top) {
                     fade_in(io);
                 } else {
@@ -93,5 +94,5 @@ changeActiveNavbarItemOnClick();
 
 changeActiveNavbarItemOnScroll();
 
-fade_in_out();
+fadeInOut();
 
