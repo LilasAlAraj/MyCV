@@ -1,3 +1,11 @@
+:root {
+    --black: black;
+    --white: white;
+    --gray: gray;
+    --temp-bg-color: var(--main-color);
+    --temp-main-color: var(--bg-color);
+}
+
 .dancing {
     font-family: 'Dancing Script', cursive;
 }
@@ -6,32 +14,66 @@
     font-family: 'Roboto', sans-serif;
 }
 
-:root {
-    --data-progress: 0;
+/*******************/
+
+.body {
+    contain: paint;
+    /*this is instead of overflow-x: hidden; */
+    /*
+    note:
+    i put body class to make style switcher without any container, to make it over on screen scrolling
+    */
+
 }
 
 
-/*******************/
-html,
+
 body {
     max-width: 100%;
-    overflow-x: hidden;
+    background-color: var(--white);
+    --style-color: var(--main-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--black);
+
 }
 
 p {
-
+    color: var(--black);
     font-size: 18px;
     font-weight: 300;
+
 }
 
 a {
     text-decoration: none;
+    color: var(--black);
 }
 
 ul {
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+
+.dark {
+    --black: white;
+    --white: black;
+    --gray: rgb(189, 189, 189);
+
+    --bg-color: var(--temp-bg-color);
+
+    --main-color: var(--temp-main-color);
+    --main-color-alpha: var(--bg-color-alpha);
+    --style-color: var(--main-color);
+
 }
 
 /*******************/
@@ -49,6 +91,8 @@ ul {
 
 nav {
     box-shadow: 0 2px 4px 0 var(--shadow);
+
+
 }
 
 .navbar .logo {
@@ -72,6 +116,7 @@ nav {
 
     align-items: center;
     transition: all 1s ease;
+    color: var(--black);
 
 }
 
@@ -82,7 +127,7 @@ nav {
 }
 
 .navbar .nav-item .nav-link.active {
-    color: white;
+    color: var(--white);
     font-weight: 300;
     border: 2px solid var(--main-color);
     border-radius: 25%;
@@ -93,6 +138,7 @@ nav {
 .navbar a {
     justify-content: center;
     display: flex;
+    /* margin: 0 5px; */
 }
 
 /*******************/
@@ -118,14 +164,12 @@ nav {
 }
 
 .landing-text h1 {
-    color: black;
     font-weight: 400;
     font-size: 50px;
 }
 
 
 .landing-text p {
-    color: black;
     font-size: 26.6px;
     font-weight: 200;
 
@@ -145,12 +189,12 @@ nav {
 
 .landing .img-box h3 span {
 
-    animation: typing 8s ease-in-out infinite;
+    animation: coloring 8s ease-in-out infinite;
 
 }
 
 
-@keyframes typing {
+@keyframes coloring {
 
     0% {
         color: rgb(241, 106, 106);
@@ -267,17 +311,16 @@ nav {
 }
 
 .basic-info .bi {
-    color: black;
 
     font-size: 18px;
     font-weight: 300;
 
 }
 
-.basic-info .fas {
-    color: black;
+.basic-info i {
     margin: 0 15px;
     font-size: 20px;
+    color: var(--black);
 }
 
 /*********/
@@ -285,10 +328,15 @@ nav {
     margin-bottom: 25px;
 }
 
+
+
 .skills h4 {
     font-size: 18px;
     font-weight: 300;
     background-color: transparent;
+    border-radius: 0px;
+    height: 17px;
+
 }
 
 .skill {
@@ -302,27 +350,20 @@ nav {
 }
 
 .bar {
-    background: gray;
+    background: var(--gray);
     display: block;
     height: 20px;
-    border: 1px solid rgba(0, 0, 0, .3);
     border-radius: 10px;
-    overflow: hidden;
     box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
     transition: all .3s cubic-bezier(.25, .8, .25, 1);
 }
 
-.bar:hover {
-    box-shadow: 0 2px 3px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .22);
-}
 
 .bar span {
     height: 20px;
     float: left;
     opacity: 1;
     background: linear-gradient(135deg, var(--main-color-alpha)0%, var(--bg-color)100%);
-
-
 }
 
 
@@ -497,6 +538,26 @@ nav {
     }
 }
 
+@keyframes proplem {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 60%;
+    }
+}
+
+@keyframes proplemOut {
+    0% {
+        width: 60%;
+    }
+
+    100% {
+        width: 0%;
+    }
+}
+
 /************************/
 .experience .row {
     margin: 30px 0;
@@ -584,7 +645,7 @@ nav {
 }
 
 .education .description h5 {
-    color: gray;
+    color: var(--gray);
 }
 
 
@@ -614,35 +675,49 @@ nav {
 /**********************/
 .hobbies .row {
     text-align: center;
+    margin-bottom: 15px;
 }
 
 .hobbies .row .hoppy {
 
-    margin: 25px 40px 0 40px;
+    margin: 25px 20px 0 20px;
     display: inline-table;
 
 }
 
+
+
 .hobbies .row .hoppy i {
     font-size: 45px;
-    color: var(--buttom);
+    color: var(--bg-color);
 }
+
+.hobbies .row .hoppy i:hover {
+    transform: scale(1.5);
+
+    transition: 1s ease-in-out;
+}
+
 
 
 .hobbies .row .hoppy p {
 
-    color: black;
     margin-top: 15px;
 }
 
 /**********************/
-.footer-top .fab {
-    color: var(--buttom);
+.footer-top i {
+    color: var(--main-color);
     font-size: 25px;
     margin: 25px 15px;
 }
 
 
+.footer-top i:hover {
+    transform: scale(1.75);
+
+    transition: 1s ease-in-out;
+}
 
 .footer {
     padding: 50px 0 20px;
@@ -660,3 +735,201 @@ nav {
 }
 
 /**********************/
+
+.style-switcher {
+    width: 250px;
+    height: 175px;
+    right: -250px;
+    top: 125px;
+    background-color: var(--style-color);
+    border: 1px solid var(--main-color);
+    border-top-left-radius: 15%;
+    border-bottom-left-radius: 15%;
+
+    box-shadow: var(--shadow);
+    position: fixed;
+    padding: 30px;
+    transition: right .5s ease-in-out;
+
+}
+
+.style-switcher.open {
+    right: 0;
+}
+
+.switcher-btn {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 67.5px;
+    left: -40px;
+    background-color: var(--main-color);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px 0 0 8px;
+    cursor: pointer;
+
+}
+
+
+.switcher-btn i {
+    color: var(--white);
+}
+
+.dark-btn {
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    top: 193px;
+    background-color: var(--main-color);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+
+}
+
+.dark-btn i {
+    color: var(--white);
+}
+
+
+.style-switcher h3 {
+    font-size: 18px;
+    text-transform: capitalize;
+    border-bottom: 1px solid var(--gray);
+    padding: 0 0 10px;
+    color: var(--white);
+}
+
+.style-switcher p {
+    color: var(--white);
+
+}
+
+.style-switcher-item {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--gray);
+}
+
+.theme-colors button {
+    height: 30px;
+    width: 30px;
+    border: none;
+    vertical-align: middle;
+    border: 1px solid var(--black);
+
+    border-radius: 50%;
+}
+
+
+
+.theme-colors .active::after {
+    content: "\2713";
+    color: var(--white);
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+
+}
+
+.theme-colors .color-1 {
+    background-color: hsl(340, 100%, 31%);
+
+}
+
+
+.theme-colors .color-2 {
+    background-color: hsl(88, 100%, 23%);
+}
+
+
+.theme-colors .color-3 {
+    background-color: hsl(300, 100%, 23%);
+}
+
+
+
+
+.theme-colors .color-4 {
+    background-color: hsl(200, 100%, 23%);
+
+}
+
+
+.theme-colors .color-5 {
+    background-color: hsl(49, 100%, 50%);
+}
+
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+
+
+    .dark-btn,
+    .switcher-btn {
+        transform: scale(.75);
+
+
+    }
+
+    .switcher-btn {
+
+        left: -15%;
+    }
+
+    .dark-btn {
+        left: -1%;
+    }
+}
+
+
+/*********************/
+
+.page-loader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1001;
+    display: flex;
+    background-color: white;
+    overflow: hidden;
+}
+
+.page-loader.face-out {
+    opacity: 0;
+    transition: all .5s ease;
+
+}
+
+.page-loader p {
+    background-image: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 250px;
+    height: 400px;
+    border-right: 2px solid orange;
+    animation: typing 3s linear infinite;
+}
+
+
+@keyframes typing {
+
+    0%,
+    10%,
+    100% {
+        width: 0;
+    }
+
+    70%,
+    90% {
+        width: 400px;
+    }
+
+}

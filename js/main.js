@@ -56,6 +56,8 @@ function changeProgressBarOnScroll() {
             hideProgress();
         }
     })
+
+
 }
 
 
@@ -87,6 +89,106 @@ function fadeInOut() {
 
 }
 
+
+
+function styleSwitcherToggle() {
+
+    const styleSwitcher = document.querySelector(".style-switcher");
+    const styleSwitcherToggleer = document.querySelector(".switcher-btn")
+
+
+    styleSwitcherToggleer.addEventListener("click", function () {
+        styleSwitcher.classList.toggle("open");
+        this.querySelector("i").classList.toggle("fa-times");
+        this.querySelector("i").classList.toggle("fa-cog");
+
+
+    })
+}
+
+
+
+function darkSwitcherToggle() {
+
+    const darkSwitcherToggleer = document.querySelector(".dark-btn")
+    darkSwitcherToggleer.addEventListener("click", () => {
+        darkSwitcherToggleer.querySelector("i").classList.toggle("fa-moon");
+        darkSwitcherToggleer.querySelector("i").classList.toggle("fa-sun");
+
+        if (darkSwitcherToggleer.querySelector("i").classList.contains("fa-sun")) {
+            localStorage.setItem("dark", "true");
+
+        }
+        else {
+            localStorage.setItem("dark", "false");
+        }
+        themeMode();
+
+    });
+    function themeMode() {
+        if (localStorage.getItem("dark") === "true") {
+            document.body.classList.add("dark");
+        } else {
+            document.body.classList.remove("dark");
+        }
+    }
+
+    if (localStorage.getItem("dark") !== null) {
+        themeMode();
+    }
+    if (document.body.classList.contains("dark")) {
+        darkSwitcherToggleer.querySelector("i").classList.toggle("fa-moon");
+        darkSwitcherToggleer.querySelector("i").classList.toggle("fa-sun");
+
+    }
+
+}
+
+
+function themeColors() {
+    const colorStyle = document.querySelector(".color-style");
+    const themeColorContainer = document.querySelector(".theme-colors");
+    themeColorContainer.addEventListener("click", ({ target }) => {
+        if (target.classList.contains("theme-color-item")) {
+            localStorage.setItem("color", target.dataset.theme_color);
+            setColor();
+
+        }
+    });
+
+
+    function setColor() {
+        let path = colorStyle.getAttribute("href").split("/");
+        path = path.slice(0, path.length - 1);
+        colorStyle.setAttribute("href", path.join("/") + "/" + localStorage.getItem("color") + ".css");
+        if (document.querySelector(".theme-color-item.active")) {
+            document.querySelector(".theme-color-item.active").classList.remove("active")
+        }
+
+        document.querySelector("[data-theme_color=" + localStorage.getItem("color") + "]").classList.add("active")
+
+    }
+
+    if (localStorage.getItem("color") !== null) {
+        setColor();
+    } else {
+        const defaultColor = colorStyle.getAttribute("href").split("/")[2].split(".")[0];
+        document.querySelector("[data-theme_color=" + defaultColor + "]").classList.add("active")
+    }
+}
+
+function pageLoadin()
+{
+
+    window.addEventListener("load",()=>{
+        document.querySelector(".page-loader").classList.add("face-out");
+        setTimeout(() => {
+            document.querySelector(".page-loader").style.display = "none";
+        }, 600);
+    })
+    
+}
+
 /************************* CALL THE FUNCTIONS*************************/
 changeProgressBarOnScroll();
 
@@ -96,3 +198,10 @@ changeActiveNavbarItemOnScroll();
 
 fadeInOut();
 
+themeColors();
+
+styleSwitcherToggle();
+
+darkSwitcherToggle();
+
+pageLoadin();
