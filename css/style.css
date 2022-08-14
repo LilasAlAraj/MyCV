@@ -710,28 +710,23 @@ nav {
     color: var(--main-color);
     font-size: 25px;
     margin: 25px 15px;
+    transition: 1s ease-in-out;
 }
 
 
 .footer-top i:hover {
     transform: scale(1.75);
-
-    transition: 1s ease-in-out;
 }
 
 .footer {
     padding: 50px 0 20px;
     border-top: 2px solid var(--shadow);
-
     text-align: center;
-
-
 }
 
 
 .footer-bottom p {
     font-size: 15px;
-
 }
 
 /**********************/
