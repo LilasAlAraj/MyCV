@@ -628,17 +628,14 @@ nav {
 }
 
 .projects .pro .date p ,
-    .education .edu .date p {
+.education .edu .date p {
     margin: 5px 30px;
-
-
 }
 
 .projects .pro .name p ,
     .education .edu .degree p {
     font-size: 27px;
     font-weight: 100;
-
 }
 
 
@@ -656,7 +653,7 @@ nav {
 }
 
 
-.projects  button {
+.projects button {
     background: var(--main-color);
     border-radius: 10px;
     border: 0ch;
@@ -665,7 +662,7 @@ nav {
 
 
 
-.projects  button a {
+.projects button a {
   color: var(--white);
 }
 
