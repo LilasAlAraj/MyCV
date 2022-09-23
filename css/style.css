@@ -18,7 +18,7 @@
 
 .body {
     contain: paint;
-    /*this is instead of overflow-x: hidden; */
+    /*this is instead of overflow-y: hidden; */
     /*
     note:
     i put body class to make style switcher without any container, to make it over on screen scrolling
@@ -601,13 +601,15 @@ nav {
 
 /****************************/
 
-.education .row {
+.projects .row ,
+    .education .row {
     margin: 30px 0;
     text-transform: capitalize;
 
 }
 
-.education .edu {
+.projects .pro ,
+    .education .edu {
     background-color: var(--bg-color);
     text-align: center;
     padding: 35px 0;
@@ -616,7 +618,7 @@ nav {
 
 
 }
-
+.projects .description ,
 .education .description {
 
     transition: .5s ease-in-out transform,
@@ -625,19 +627,24 @@ nav {
 
 }
 
-.education .edu .date p {
+.projects .pro .date p ,
+    .education .edu .date p {
     margin: 5px 30px;
 
 
 }
 
-.education .edu .degree p {
+.projects .pro .name p ,
+    .education .edu .degree p {
     font-size: 27px;
     font-weight: 100;
 
 }
 
 
+.projects .description h5,
+.projects .description h4,
+.projects .description p ,
 .education .description h5,
 .education .description h4,
 .education .description p {
@@ -649,6 +656,20 @@ nav {
 }
 
 
+.projects  button {
+    background: var(--main-color);
+    border-radius: 10%;
+    border: 0ch;
+    margin: 5px 30px;
+}
+
+
+
+.projects  button a {
+  color: var(--white);
+}
+
+.projects,
 .university {
     margin-bottom: 45px;
 }
@@ -733,7 +754,7 @@ nav {
 
 .style-switcher {
     width: 250px;
-    height: 175px;
+    height: fit-content;
     right: -250px;
     top: 125px;
     background-color: var(--style-color);
