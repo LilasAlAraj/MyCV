@@ -658,7 +658,7 @@ nav {
 
 .projects  button {
     background: var(--main-color);
-    border-radius: 10%;
+    border-radius: 10px;
     border: 0ch;
     margin: 5px 30px;
 }
